@@ -5,14 +5,19 @@ import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "./providers/theme-provider.tsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <QueryClientProvider client={queryClient}>
         <Router>
+          <Toaster />
           <App />
         </Router>
-      <Toaster />
+      </QueryClientProvider>
     </ThemeProvider>
   </React.StrictMode>
 );

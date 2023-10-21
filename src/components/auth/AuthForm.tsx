@@ -34,9 +34,11 @@ export function AuthForm({ className, ...props }: UserAuthFormProps) {
 
       // If a valid token is received, display a success toast and log in the user
       if (res.data.token) {
-        localStorage.setItem("token", JSON.stringify(res.data.token));
-        setToken(res.data.token)
-        navigate('/dashboard')
+        localStorage.setItem("token", res.data.token);
+        setToken(res.data.token);
+        console.log("1")
+        navigate('/dashboard');
+        console.log("2")
         toast.success("Welcome!");
       } else {
         // If no valid token, display an error toast'

@@ -5,17 +5,14 @@ interface AuthStore {
   token: Token | null;
   setToken: (token: Token | null) => void;
   isLoggedIn: boolean;
-  logout: () => void;
+  userToken: Token | null;
 }
 
 const useAuthStore = create<AuthStore>((set) => ({
   token: null,
   setToken: (token) => set({ token }),
   isLoggedIn: !!localStorage.getItem("token"),
-  logout: () => {
-    localStorage.removeItem("token");
-    set({ token: null });
-  },
+  userToken:  localStorage.getItem("token")
 }));
 
 export default useAuthStore;

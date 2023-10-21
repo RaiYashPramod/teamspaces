@@ -12,7 +12,7 @@ const Login = () => {
   );
 
   useEffect(() => {
-    if (isLoggedIn) navigate("/");
+    if (isLoggedIn) navigate("/dashboard");
   }, []);
 
   return (
@@ -43,7 +43,7 @@ const Login = () => {
                 Enter Details below to signIn/signUp your account
               </p>
             </div>
-            <AuthForm className={undefined} />
+            <AuthForm />
             <p className="px-8 text-center text-sm text-muted-foreground">
               By clicking, you agree to our <br />
               <Link
